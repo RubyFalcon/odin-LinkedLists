@@ -5,5 +5,11 @@ l1.prepend("John")
 l1.prepend("Tupay");
 l1.prepend("carl")
 l1.append("Marx")
-console.log(l1);
+
+
+l1.insertAt("200", 4)
+l1.toString()
+l1.removeAt(3);
 l1.toString();
+l1.at(4);
+l1.size()

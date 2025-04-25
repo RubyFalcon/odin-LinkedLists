@@ -7,13 +7,6 @@ export class Node {
         this.value = value;
         this.nextNode = nextNode;
     }
-    setValue(value){
-        this.value = value;
-    }
-    setNextNode(nextNode){
-        this.nextNode = nextNode;
-    }
-
 
 }
 

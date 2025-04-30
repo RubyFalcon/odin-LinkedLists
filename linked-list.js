@@ -134,6 +134,16 @@ export class LinkedList {
         previous.nextNode = null;
     }
 
+    contains(value){
+        let current = this.listHead;
+        while (current != null){
+            if (current.value == value){
+                return true;
+            }
+        }
+        return false;
+
+    }
 }
 
 

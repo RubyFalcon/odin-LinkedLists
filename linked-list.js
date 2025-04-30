@@ -4,14 +4,22 @@ import {Node} from "./node.js";
 
 export class LinkedList {
     constructor(){
-        this.head = null;
+        this.listHead = null;
         this.length = 0;
     }
 
+    get head(){
+        return this.listHead;
+    }
+    
+    tail(){
+        return this.at((this.length)-1);
+        //every tail based on our logic would have an empty node , so we take length - 1;
+    }
     //prepend is the start of the list
     prepend(value){
 
-        this.head = new Node(value, this.head);
+        this.listHead = new Node(value, this.listHead);
         this.length++;
     }
 
@@ -21,10 +29,10 @@ export class LinkedList {
        let current;
 
        // If empty make it the head
-       if(!this.head){
-        this.head = node;
+       if(!this.listHead){
+        this.listHead = node;
        }else {
-        current = this.head;
+        current = this.listHead;
         while(current.nextNode){
             current = current.nextNode;
 
@@ -39,14 +47,14 @@ export class LinkedList {
             return
         }
         if (index === 0) {
-            this.head = new Node(value, this.head);
+            this.listHead = new Node(value, this.listHead);
             return
         }
 
         const node =  new Node(value);
         let current, previous;
         //set current to first
-        current = this.head;
+        current = this.listHead;
         let count = 0;
         while (count < index) {
             previous = current;//node before index
@@ -60,11 +68,11 @@ export class LinkedList {
     }
 
     at(index){
-        let current = this.head;
+        let current = this.listHead;
         let count = 0;
         while (current){
           if (count == index) {
-            console.log(current.value)
+            return current.value;
         }
         count++;
         current = current.nextNode;  
@@ -73,7 +81,7 @@ export class LinkedList {
         return null ;
     }
     size(){
-        console.log(this.length)
+        return this.length;
      
         
 
@@ -83,11 +91,11 @@ export class LinkedList {
         if (index < 0 || index > this.length ) {
             return;
         }
-        let current = this.head;
+        let current = this.listHead;
         let previous;
         let count = 0;
         if (index == 0) {
-            this.head = current.nextNode;
+            this.listHead = current.nextNode;
 
         } else {
             while (count < index) {
@@ -103,7 +111,7 @@ export class LinkedList {
         this.length--;
     }
     toString(){
-        let current = this.head;
+        let current = this.listHead;
         let string = "";
         while (current) {
          

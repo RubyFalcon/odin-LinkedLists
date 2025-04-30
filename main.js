@@ -11,5 +11,8 @@ l1.insertAt("200", 4)
 l1.toString()
 l1.removeAt(3);
 l1.toString();
-l1.at(4);
-l1.size()
+l1.at(3);
+
+// console.log(l1.size());
+// // console.log(l1.head);
+console.log(l1.tail())

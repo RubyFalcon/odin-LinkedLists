@@ -3,28 +3,28 @@ import {Node} from "./node.js";
 
 
 export class LinkedList {
-    constructor(){
+    constructor() {
         this.listHead = null;
         this.length = 0;
     }
 
-    get head(){
+    head() {
         return this.listHead;
     }
     
-    tail(){
+    tail() {
         return this.at((this.length)-1);
         //every tail based on our logic would have an empty node , so we take length - 1;
     }
     //prepend is the start of the list
-    prepend(value){
+    prepend(value) {
 
         this.listHead = new Node(value, this.listHead);
         this.length++;
     }
 
     //append adds new node to the end of the list /
-    append(data){
+    append(data) {
        let node  = new Node(data);
        let current;
 
@@ -42,7 +42,7 @@ export class LinkedList {
         this.length++;
     }
 
-    insertAt(value, index){ //insert at an index
+    insertAt(value, index) { //insert at an index
         if(index < 0 || index > this.length) {
             return
         }
@@ -67,7 +67,7 @@ export class LinkedList {
         this.length++;
     }
 
-    at(index){
+    at(index) {
         let current = this.listHead;
         let count = 0;
         while (current){
@@ -80,14 +80,14 @@ export class LinkedList {
         
         return null ;
     }
-    size(){
+    size() {
         return this.length;
      
         
 
     }
 
-    removeAt(index){
+    removeAt(index) {
         if (index < 0 || index > this.length ) {
             return;
         }
@@ -110,7 +110,7 @@ export class LinkedList {
         }
         this.length--;
     }
-    toString(){
+    toString() {
         let current = this.listHead;
         let string = "";
         while (current) {
@@ -123,7 +123,7 @@ export class LinkedList {
         //loop then return each node as a (node)-> (node)
     }
 
-    pop(){
+    pop() {
         let current = this.listHead;
         let previous = null;
 
@@ -134,7 +134,7 @@ export class LinkedList {
         previous.nextNode = null;
     }
 
-    contains(value){
+    contains(value) {
         let current = this.listHead;
         while (current != null){
             if (current.value == value){
@@ -143,6 +143,17 @@ export class LinkedList {
         }
         return false;
 
+    }
+
+    find(value) {
+        let current = this.head;
+
+        let index = 0;
+        while (current != null) {
+            if (current.value == value) return index;
+            current = current.nextNode;
+            index++;
+        }
     }
 }
 

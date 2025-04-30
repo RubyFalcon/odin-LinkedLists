@@ -123,6 +123,17 @@ export class LinkedList {
         //loop then return each node as a (node)-> (node)
     }
 
+    pop(){
+        let current = this.listHead;
+        let previous = null;
+
+        while(current != null){
+            previous = current;
+            current = current.nextNode;
+        }
+        previous.nextNode = null;
+    }
+
 }
 
 
